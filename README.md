@@ -4,6 +4,46 @@ This library is extension for awesome libGDX library - https://github.com/libgdx
 
 Purpose of this library is to simplify to create 2d games using Stage2d package. Library contains only 2 classes and very easy to use.
 
+# How to use it in your project?
+
+This library is available via JitPack. See more - https://jitpack.io
+
+Edit your top build.gradle file:
+
+**Add JitPack repository**
+
+    allprojects {
+        ...
+        repositories {
+            ...
+	          maven { url "https://jitpack.io" }
+        }
+    }
+    
+**Add Android dependency:**
+
+    project(":android") {
+        ...
+        dependencies {
+           ...
+           compile 'com.github.1nt3g3r:gdx-freetype-font-manager:v1.1'
+        }
+    }
+
+**Add Core dependency:**
+
+    project(":core") {
+        ...
+        dependencies {
+              ...
+    	        compile 'com.github.1nt3g3r:gdx-freetype-font-manager:v1.1'
+        }
+    }
+    
+ You see we are using **v1.1** version here. But you can change it. Just look **Releases** section of this repository if you want to use any other version.
+  
+ Refresh your gradle dependencies using **./gradlew --refresh-dependencies**. Call it from command line.
+
 # How to init it?
 
 Your ApplicationListener should be subclass of Game. And you should have SpriteBatch instance. After it you can create ScreenManager instance. Example:
