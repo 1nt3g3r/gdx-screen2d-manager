@@ -30,12 +30,12 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 /**
- * Abstract 2d screen with built-in {@Stage}
+ * Abstract 2d screen with built-in {@link Stage}
  * 
- * It's oriented primary to work with {@Actor} and subclasses
+ * It's oriented primary to work with {@link Actor} and subclasses
  * 
  * IMPORTANT! If you're using this class with ScreenManager, you should to have empty constructor. It's because 
- * {@ScreenManager} uses reflection to create instances, and {@ScreenManager} expects empty constructor. Use {@link #init()} 
+ * {@link ScreenManager} uses reflection to create instances, and {@link ScreenManager} expects empty constructor. Use {@link #init()} 
  * to initialize your screen (add actors, listeners, etc).
  * 
  * @author 1nt3g3r
@@ -56,7 +56,7 @@ public class AbstractScreen extends ScreenAdapter {
 	}
 	
 	/**
-	 * Set batch for this screen. When you call this method, new {@Stage} will be created
+	 * Set batch for this screen. When you call this method, new {@link Stage} will be created
 	 */
 	public AbstractScreen setBatch(SpriteBatch batch) {
 		stage = new Stage(new ScreenViewport(), batch);
@@ -106,7 +106,7 @@ public class AbstractScreen extends ScreenAdapter {
 	/**
 	 * Executes task in main thread after delay seconds
 	 * 
-	 * NOTE: Task will be executed as an action in {@Stage}. So if you will call stage.clearActions() before executing task, 
+	 * NOTE: Task will be executed as an action in {@link Stage}. So if you will call stage.clearActions() before executing task, 
 	 * this task will never be executed
 	 */
 	public void postTask(float delay, Runnable task) {
@@ -116,7 +116,7 @@ public class AbstractScreen extends ScreenAdapter {
 	/**
 	 * Constantly repeat task with interval seconds.
 	 * 
-	 * NOTE: Task will be executed as an action in {@Stage}. So if you will call stage.clearActions() before executing task, 
+	 * NOTE: Task will be executed as an action in {@link Stage}. So if you will call stage.clearActions() before executing task, 
 	 * this task will never be executed
 	 */
 	public void repeatTask(float interval, Runnable task) {
@@ -140,7 +140,7 @@ public class AbstractScreen extends ScreenAdapter {
 	}
 	
 	/**
-	 * Returns this screen {@Stage} instance
+	 * Returns this screen {@link Stage} instance
 	 * @return
 	 */
 	public Stage getStage() {
@@ -148,14 +148,14 @@ public class AbstractScreen extends ScreenAdapter {
 	}
 
 	/**
-	 * Search actor by his name. Call stage.getRoo().findActor(), so it can be slow
+	 * Search actor by his name. Call stage.getRoot().findActor(), so it can be slow
 	 */
 	public <T extends Actor> T findActor (String name) {
 		return stage.getRoot().findActor(name);
 	}
 
 	/**
-	 * Adds an actor to {@Stage}
+	 * Adds an actor to {@link Stage}
 	 */
 	public void addActor(Actor actor) {
 		stage.addActor(actor);

@@ -21,7 +21,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 /**
- * Class that managers multiple {@AbstractScreen}
+ * Class that managers multiple {@link AbstractScreen}
  * 
  * @author 1nt3g3r
  */
@@ -31,7 +31,7 @@ public class ScreenManager {
 
     /**
      * @param game instance of your game
-     * @param batch batch that will be passed to {@AbstractScreen}. All screens share one batch (for performance purposes).
+     * @param batch batch that will be passed to {@link AbstractScreen}. All screens share one batch (for performance purposes).
      */
     public ScreenManager(Game game, SpriteBatch batch) {
         this.game = game;
