@@ -17,6 +17,7 @@
 package ua.com.integer.gdx.screen2d.manager;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 /**
@@ -52,6 +53,18 @@ public class ScreenManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    /**
+     * Dispose current screen by calling game.getScreen().dispose(). After it set passed screen by calling 
+     * game.setScreen(screen);
+     */
+    public void showScreen(Screen screen) {
+    	if (game.getScreen() != null) {
+    		game.getScreen().dispose();
+    	}
+    	
+    	game.setScreen(screen);
     }
 
     /**
