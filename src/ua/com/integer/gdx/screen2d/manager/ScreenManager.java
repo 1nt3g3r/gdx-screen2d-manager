@@ -18,6 +18,7 @@ package ua.com.integer.gdx.screen2d.manager;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 /**
@@ -26,14 +27,14 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
  * @author 1nt3g3r
  */
 public class ScreenManager {
-    private SpriteBatch batch;
+    private Batch batch;
     private Game game;
 
     /**
      * @param game instance of your game
      * @param batch batch that will be passed to {@link AbstractScreen}. All screens share one batch (for performance purposes).
      */
-    public ScreenManager(Game game, SpriteBatch batch) {
+    public ScreenManager(Game game, Batch batch) {
         this.game = game;
         this.batch = batch;
     }
@@ -70,8 +71,12 @@ public class ScreenManager {
     /**
      * Dispose current screen and load it again. It can be useful if you made some changes and need to reload current screen
      */
-    public void reload() {
+    public void reloadCurrentScreen() {
         AbstractScreen screen = (AbstractScreen) game.getScreen();
         showScreen(screen.getClass());
+    }
+
+    public <T extends Screen> T getCurrentScreen() {
+        return (T) game.getScreen();
     }
 }
